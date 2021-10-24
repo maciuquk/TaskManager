@@ -134,6 +134,11 @@ namespace TaskManager.Controllers
             return View(task);
         }
 
+        public async Task<IActionResult> FinishTasks()
+        {
+            return View(await _context.Tasks.Where(task =>task.IsDone == true).ToListAsync());
+        }
+
         // POST: Tasks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
