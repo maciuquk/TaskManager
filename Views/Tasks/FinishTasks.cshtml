@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<TaskManager.Models.Task>
 
 @{
-    ViewData["Title"] = "Lista zadań zakończonych";
+    ViewData["Title"] = "Lista zadań";
 }
-<h1>Lista zadań zakończonych</h1>
 
+<h1>Lista zadań</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowe zadanie</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -21,27 +25,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TaskName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsDone)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edycja</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Szczegóły</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Usuń</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDone)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-outline-primary btn-sm" asp-route-id="@item.ID">Edycja</a> |
+                <a asp-action="Details" class="btn btn-outline-secondary btn-sm" asp-route-id="@item.ID">Szczegóły</a> |
+                <a asp-action="Delete" class="btn btn-outline-danger btn-sm" asp-route-id="@item.ID">Usuń</a>
+            </td>
+        </tr>
+}
     </tbody>
-
-
-
 </table>

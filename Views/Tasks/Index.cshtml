@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.IsDone)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edycja</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Szczegóły</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Usuń</a>
+                <a asp-action="Edit" class="btn btn-outline-primary btn-sm" asp-route-id="@item.ID">Edycja</a> |
+                <a asp-action="Details" class="btn btn-outline-secondary btn-sm" asp-route-id="@item.ID">Szczegóły</a> |
+                <a asp-action="Delete" class="btn btn-outline-danger btn-sm" asp-route-id="@item.ID">Usuń</a>
             </td>
         </tr>
 }
